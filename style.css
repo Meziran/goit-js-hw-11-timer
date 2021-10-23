@@ -1,0 +1,52 @@
+.timer__items {
+  display: flex;
+  font-size: 48px;
+}
+#timer-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+  /* background-color: antiquewhite; */
+  border-radius: 3px;
+  font-size: 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.value {
+  letter-spacing: 0.05em;
+  font-size: 60px;
+  margin-bottom: 5px;
+}
+.timer__item {
+  position: relative;
+  min-width: 50 px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.timer__item::before {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-size: 50 px;
+}
+
+.timer__item:not(:last-child)::after {
+  content: ":";
+  position: absolute;
+  right: -15px;
+}
