@@ -6,9 +6,14 @@ class CountdownTimer {
     this.hoursEl = document.querySelector('[data-value="hours"]');
     this.minsEl = document.querySelector('[data-value="mins"]');
     this.secsEl = document.querySelector('[data-value="secs"]');
+    this.timerId = null;
 
     setInterval(() => {
       const time = this.targetDate - Date.now();
+
+      if (time <= 0) {
+        clearInterval(timerId);
+      }
       this.daysEl.textContent = getTime(time).days;
       this.hoursEl.textContent = getTime(time).hours;
       this.minsEl.textContent = getTime(time).mins;
@@ -33,4 +38,5 @@ class CountdownTimer {
 const timer = new CountdownTimer({
   selector: "#timer-1",
   targetDate: new Date("Jan 01, 2022"),
+  // targetDate: new Date("Oct 25, 2021, 06:48"),
 });
